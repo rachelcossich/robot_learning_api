@@ -1,6 +1,3 @@
-*** Settings ***
-Library    RequestsLibrary
-
 *** Keywords ***
 Login
     [Documentation]    KW: to perform a login
@@ -14,8 +11,9 @@ Login
     ...              password=${password}
     
     Create Session    serveRest        ${BASE_URL}    verify=True
-    ${response}       POST   serveRest    /login
-    ...               header=${header}
+    ${response}       POST On Session   serveRest    /login
+    ...               headers=${header}
     ...               json=${body}
+    ...               expected_status=any
     
     Set Test Variable    ${response}
