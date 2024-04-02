@@ -11,4 +11,3 @@ Login successfully
     Login    Fulano da Silva        teste
     Should Be Equal As Numbers    ${response.status_code}            200
     Should Be Equal As Strings    ${response.json()['message']}       Login realizado com sucesso!
-    
